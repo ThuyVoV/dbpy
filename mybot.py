@@ -47,7 +47,6 @@ for file in os.listdir("./cogs"): # lists all the cog files inside the cog folde
         #name = file[:-3] # It gets the name of the file removing the ".py"
         bot.load_extension(f"cogs.{file[:-3]}") # This loads the cog.
 
-#bot.run(os.getenv("TOKEN"))
 bot.run(TOKENXX)
 
 
