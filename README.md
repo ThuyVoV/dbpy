@@ -1,3 +1,3 @@
 # dbpy
 
-test push
+test pusha
