@@ -4,7 +4,7 @@ import json
 import textwrap
 from discord.ext import commands
 
-class random(commands.Cog):
+class Random(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
@@ -45,8 +45,8 @@ class random(commands.Cog):
             json_data = json.loads(response.text)
             await ctx.send(json_data["message"])
 
-    @commands.command(aliases=['emo'])
-    async def emo_letters(self, ctx, *, message="STFU LOL!!"):
+    @commands.command()
+    async def emo(self, ctx, *, message="STFU LOL!!"):
         reg = ":regional_indicator_a: "
         output = {}
 
@@ -80,4 +80,4 @@ class random(commands.Cog):
         #await ctx.send(output)
 
 def setup(bot):
-    bot.add_cog(random(bot))
+    bot.add_cog(Random(bot))
