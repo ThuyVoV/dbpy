@@ -4,7 +4,7 @@ import logging
 import random
 import json
 import requests
-from env import TOKEN, PREFIX
+from config import TOKEN, PREFIX
 from discord.ext import commands, tasks
 
 logging.basicConfig(level=logging.INFO)
