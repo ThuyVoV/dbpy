@@ -18,12 +18,11 @@ class Moderate(commands.Cog):
             print('{0.user} did {0.action} to {0.target}'.format(entry))
 
     @commands.command()
-    async def cu(self, ctx, *, member : discord.Member = None):
-        member = member or ctx.author
-        await ctx.send(member.created_at)
-        await ctx.send(member.activity)
-
-        await ctx.send(member.guild)
+    async def cu(self, ctx):
+        await ctx.send(f"{ctx.guild} |||guild")
+        await ctx.send(f"{ctx.message} |||message")
+        await ctx.send(f"{ctx.author} |||author")
+        #await ctx.send(f"{ctx.} |||")
 
 
 def setup(bot):

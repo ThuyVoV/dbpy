@@ -46,12 +46,11 @@ class Random(commands.Cog):
             await ctx.send(json_data["message"])
 
     @commands.command()
-    async def emo(self, ctx, *, message="STFU LOL!!"):
+    async def emo(self, ctx, *, message = "STFU LOL!!"):
         reg = ":regional_indicator_a: "
         output = {}
-
-        messages = textwrap.wrap(message.lower(), 50, break_long_words=False)
-
+        messages = textwrap.wrap(message.lower()+str(ctx.author).split('#')[0], 50, break_long_words=False)
+        
         numbers = {
             '0': ':zero:', '1': ':one:', '2': ':two:', '3': ':three:', '4': ':four:', 
             '5': ':five:', '6': ':six:', '7': ':seven:', '8': ':eight:', '9': ':nine:' 
@@ -76,8 +75,9 @@ class Random(commands.Cog):
             
             await ctx.send(output)
 
-        #await ctx.send("too long") if len(output) > 1999 else await ctx.send(output)
-        #await ctx.send(output)
+    # @commands.command()
+    # async def speak(self, ctx, *, message):
+    #     await ctx.send(message)
 
 def setup(bot):
     bot.add_cog(Random(bot))
