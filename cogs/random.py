@@ -28,29 +28,29 @@ class Random(commands.Cog):
     async def catp(self, ctx, amt=1):
         for i in range(amt):
             response = requests.get("https://api.thecatapi.com/v1/images/search?mime_types=jpg,png")
-            json_data = json.loads(response.text)[0]
-            await ctx.send(json_data["url"])
+            cat = json.loads(response.text)[0]
+            await ctx.send(cat["url"])
 
     @commands.command()
     async def catg(self, ctx, amt=1):
         for i in range(amt):
             response = requests.get("https://api.thecatapi.com/v1/images/search?mime_types=gif")
-            json_data = json.loads(response.text)[0]
-            await ctx.send(json_data["url"])
+            cat = json.loads(response.text)[0]
+            await ctx.send(cat["url"])
 
     @commands.command()
     async def dog(self, ctx, amt=1):
         for i in range(amt):
             response = requests.get("https://dog.ceo/api/breeds/image/random")
-            json_data = json.loads(response.text)
-            await ctx.send(json_data["message"])
+            dog = json.loads(response.text)
+            await ctx.send(dog["message"])
 
     @commands.command()
-    async def emo(self, ctx, *, message = "STFU LOL!!"):
+    async def emo(self, ctx, *, message = "stfu lol"):
         reg = ":regional_indicator_a: "
-        output = {}
-        messages = textwrap.wrap(message.lower()+str(ctx.author).split('#')[0], 50, break_long_words=False)
-        
+
+        messages = textwrap.wrap(message.lower().split('#')[0], 50, break_long_words=False)
+
         numbers = {
             '0': ':zero:', '1': ':one:', '2': ':two:', '3': ':three:', '4': ':four:', 
             '5': ':five:', '6': ':six:', '7': ':seven:', '8': ':eight:', '9': ':nine:' 
